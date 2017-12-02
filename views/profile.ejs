@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>User Profile</title>
+    <%# add username property tp title instead of user%>
+  </head>
+  <body>
+
+    <a href="/photos/new">Add a Photo</a>
+    <%# change to just this user's photos%>
+    <% for (let Photo of allPhotos){ %>
+      <a href= '/photos/<%=Photo._id %>'><img src="<%= Photo.url %>"></a>
+    <% } %>
+
+  </body>
+</html>
