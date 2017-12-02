@@ -29,8 +29,7 @@ router.get('/feed', async (req, res) => {
 
 //====USERS====
 router.get('/users', async (req, res) => {
-  const allPhotos = await Photos.find();
-  res.render('users.ejs', {allPhotos});
+  res.render('users.ejs');
 });
 
 //====SHOW====
