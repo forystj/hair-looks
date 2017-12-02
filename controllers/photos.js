@@ -27,6 +27,12 @@ router.get('/feed', async (req, res) => {
   res.render('feed.ejs', {allPhotos});
 });
 
+//====USERS====
+router.get('/users', async (req, res) => {
+  const allPhotos = await Photos.find();
+  res.render('users.ejs', {allPhotos});
+});
+
 //====SHOW====
 router.get('/:id', async (req, res) => {
   const onePhoto = await Photos.findById(req.params.id);
