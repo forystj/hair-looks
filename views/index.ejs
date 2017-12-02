@@ -4,30 +4,19 @@
     <meta charset="utf-8">
     <title>hairLOOKS</title>
 
-    <style>
-    body {
-      text-align: center;
-    }
-    img {
-      width: 50%;
-    }
-
-    ul {
-      list-style: none;
-      padding-left: 0;
-    }
-    </style>
+    <link rel="stylesheet" href="/style.css">
 
   </head>
   <body>
-    <a href='/photos/feed>'>Feed</a>
-    <a href='/photos/'>Your Page</a>
-    <a href='/photos/users'>Users</a>
-    <a href='/sessions/login'>Log In</a>
-    <a href='/users/register'>Register</a>
+    <div id="container">
 
-    Div of spotlight (random pics)
+      <% include ../views/partials/header.ejs %>
 
+      <div class="spotlight">
+        SPOTLIGHT AREA
+      </div>
+
+    </div>
 
   </body>
 </html>

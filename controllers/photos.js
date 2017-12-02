@@ -14,7 +14,6 @@ router.post('/', async (req, res) => {
     }
 });
 
-
 //====INDEX====
 router.get('/', async (req, res) => {
   const allPhotos = await Photos.find();

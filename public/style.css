@@ -1,0 +1,80 @@
+body {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  width: 50%;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+#container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+.header {
+  width: 100%;
+  height: 4em;
+  background: rgba(237, 237, 237, .8);
+  background: -webkit-linear-gradient(rgba(237, 237, 237, .8), rgba(250, 250, 250, .8));
+  background: -o-linear-gradient(rgba(237, 237, 237, .8), rgba(250, 250, 250, .8));
+  background: -moz-linear-gradient(rgba(237, 237, 237, .8), rgba(250, 250, 250, .8));
+  background: linear-gradient(rgba(237, 237, 237, .8), rgba(250, 250, 250, .8));
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 5em;
+}
+
+.header a {
+  color:#b5b5b5;
+  font-family: arial;
+}
+
+.header a:hover {
+  color:#a3a3a3;
+  font-family: arial;
+}
+
+.head_left {
+  float: left;
+  padding-left: 12px;
+}
+
+.head_right{
+  float: right;
+  padding-right: 12px;
+}
+
+.logo {
+  display:inline;
+  margin-right: 1em;
+}
+
+.logo a {
+  color: #d6d6d6;
+  font-size: 2em;
+  font-family: helvetica;
+  text-decoration: none;
+}
+
+span.looks {
+  color: #fff;
+}
+
+
+
+.spotlight {
+  margin: auto;
+  width: 65%;
+  height: 20em;
+  background: rgba(237, 237, 237, .8);
+}
