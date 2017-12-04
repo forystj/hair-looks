@@ -5,7 +5,7 @@ const app             = express();
 const morgan          = require('morgan');
 const methodOverride  = require('method-override');
 const session = require('express-session');
-const PORT            = 3000;
+const PORT            = process.env.PORT || 3000;
 const photosController = require('./controllers/photos');
 require('pretty-error').start();
 
@@ -19,7 +19,8 @@ app.use(express.static('public'));
 
 
 //====DB====
-const mongoURI = 'mongodb://localhost:27017/mongoose_store'
+const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/hair-looks';
+
 mongoose.connect(mongoURI, { useMongoClient: true });
 mongoose.Promise = global.Promise;
 
