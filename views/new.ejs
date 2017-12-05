@@ -13,6 +13,16 @@
 
       <% include ../views/partials/header.ejs %>
 
+      <form action="/feed" method="POST">
+
+          <input type="text" name="url" placeholder="Photo URL"/>
+          <input type="text" name="submitted_by" placeholder="Your Name"/>
+          <input type="text" name="caption" placeholder="Caption"/>
+
+
+          <button type="submit">Add Photo</button>
+        </form>
+
     </div>
 
   </body>

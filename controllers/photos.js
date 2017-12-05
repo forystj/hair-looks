@@ -13,7 +13,9 @@ router.use('/user', sessionController);
 
 //====ADD PHOTO====
 router.get('/users/newphoto', (req, res)=>{
-  res.render('new.ejs');
+  res.render('new.ejs', {
+    username: req.session.username
+  });
 });
 
 
@@ -31,12 +33,34 @@ router.get('/', async (req, res) => {
 });
 
 
-//====FEED====
-// router.get('/feed', async (req, res) => {
-//   const allPhotos = await Photo.find();
-//   const allUsers = await User.find();
-//   res.render('feed.ejs', {allPhotos});
+//====CREATE ADDED PHOTO====
+// router.post('/users/:index', async (req, res) => {
+//   try {
+//     // const allPhotos = await Photo.find();
+//     const allPhotos = await Photo.create(req.body);
+//     allPhotos,
+//     res.redirect('/users/:index');
+//   } catch (err) {
+//     res.send(err.message);
+//   }
 // });
+
+
+router.post('/feed', async (req, res) => {
+  try {
+    const createdPhoto = await Photo.create(req.body);
+    res.redirect('back');
+  } catch (err) {
+    res.send(err.message);
+  }
+});
+
+//====FEED====
+router.get('/feed', async (req, res) => {
+  const allPhotos = await Photo.find();
+  const allUsers = await User.find();
+  res.render('feed.ejs', {allPhotos});
+});
 
 
 // //====DELETE=====
@@ -69,14 +93,5 @@ router.get('/', async (req, res) => {
 //  });
 // });
 
-// create route
-// router.post('/', async (req, res) => {
-//   try {
-//     const createdPhoto = await Photo.create(req.body);
-//     res.redirect('/');
-//   } catch (err) {
-//     res.send(err.message);
-//   }
-// });
 
 module.exports = router;
