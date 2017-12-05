@@ -17,9 +17,11 @@ router.use('/user', sessionController);
 //====ALL USERS INDEX====
 router.get('/', async (req, res) => {
   const allPhotos = await Photo.find();
-const allUsers = await User.find();
+  const allUsers = await User.find();
+  const thisUser = await User.find(req.session);
   if(req.session.logged) {
   res.render('users.ejs', {
+    thisUser: req.session.index,
     allUsers,
     photos: allPhotos,
     username: req.session.username
@@ -31,13 +33,14 @@ const allUsers = await User.find();
 
 
 //====PROFILE PAGE====
-router.get('/:id', async (req, res) => {
+router.get('/:index', async (req, res) => {
   const allPhotos = await Photo.find();
   const oneUser = await User.findById(req.params.id);
   if(req.session.logged) {
   res.render('profile.ejs', {
-    oneUser,
+    oneUser: User[req.params.index],
     photos: allPhotos,
+    currentPage: req.params.index,
     username: req.session.username
     });
   } else {

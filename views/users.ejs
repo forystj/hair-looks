@@ -12,8 +12,10 @@
 
       <% include ../views/partials/header.ejs %>
 
+      <a class="top-links" href='/users/<%=username%>'>Your Page</a>
+
       <% for (let User of allUsers) { %>
-        <a href="/users/<%= User._id %>"><%= User.username %></a>
+        <a href="/users/<%= User.username %>"><%= User.username %></a>
       <% } %>
 
 

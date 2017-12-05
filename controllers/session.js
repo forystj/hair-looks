@@ -52,8 +52,7 @@ router.post('/register', async (req, res) => {
     res.redirect('/');
 
   } catch(err) {
-
-  }
+    }
 })
 
 router.get('/logout', (req, res) => {
@@ -67,5 +66,5 @@ router.get('/update', (req, res) => {
   console.log(req.session);
 });
 
-// export the controller
+//====EXPORT====
 module.exports = router;

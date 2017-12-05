@@ -1,14 +1,12 @@
 const express = require('express');
 const router  = express.Router();
-
 // models
 const Photo = require('../models/photos.js');
 const User = require('../models/users.js');
 
 const sessionController = require('./session.js');
 router.use('/user', sessionController);
-// const usersController = require('./users.js');
-// router.use('/users', usersController);
+
 
 // const Comment = require('../models/comments.js');
 
@@ -22,7 +20,6 @@ router.get('/new', (req, res)=>{
 //====INDEX====
 router.get('/', async (req, res) => {
   const allPhotos = await Photo.find();
-
   if(req.session.logged) {
   res.render('index.ejs', {
     photos: allPhotos,
