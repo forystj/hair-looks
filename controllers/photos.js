@@ -12,7 +12,7 @@ router.use('/user', sessionController);
 
 
 //====ADD PHOTO====
-router.get('/new', (req, res)=>{
+router.get('/users/newphoto', (req, res)=>{
   res.render('new.ejs');
 });
 
