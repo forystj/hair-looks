@@ -13,7 +13,10 @@
       <% include ../views/partials/header.ejs %>
 
       <div class="spotlight">
-        SPOTLIGHT AREA
+        <% if (username) { %>
+            Welcome, <%= username %>. <a href="/user/logout">Log Out</a>
+        <% } %>
+              SPOTLIGHT AREA
       </div>
 
     </div>
