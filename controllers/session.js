@@ -2,9 +2,11 @@ const express = require('express');
 const bcrypt  = require('bcrypt');
 const router  = express.Router();
 const User    = require('../models/users.js');
+const userFeed = [];
+
 
 router.get('/login', (req, res) => {
-  res.render('sessions/login.ejs', {
+  res.render('session/login.ejs', {
     message: req.session.message
   })
 });
@@ -44,6 +46,7 @@ router.post('/register', async (req, res) => {
   userDbEntry.username = username;
   userDbEntry.password = passwordHash;
   console.log(userDbEntry);
+  userFeed.push(userDbEntry.username);  console.log(userFeed);
 
   try {
     const user = await User.create(userDbEntry);
@@ -51,6 +54,7 @@ router.post('/register', async (req, res) => {
     req.session.username = user.username;
     req.session.logged = true;
     res.redirect('/');
+
   } catch(err) {
 
   }

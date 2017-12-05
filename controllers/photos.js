@@ -3,6 +3,11 @@ const router  = express.Router();
 
 // models
 const Photo = require('../models/photos.js');
+const User = require('../models/users.js');
+
+const sessionController = require('./session.js');
+router.use('/users', sessionController);
+
 // const Comment = require('../models/comments.js');
 
 // index route
@@ -19,12 +24,54 @@ router.get('/', async (req, res) => {
   }
 });
 
+router.get('/feed', async (req, res) => {
+  const allPhotos = await Photo.find();
+  const allUsers = await User.find();
+  res.render('feed.ejs', {allPhotos});
+});
+
+//====USERS====
+
+router.get('/users', async (req, res) => {
+  const allPhotos = await Photo.find();
+  const allUsers = await User.find();
+  res.render('users.ejs', {allUsers, allPhotos});
+});
+
+
+// //====SHOW====
+// router.get('/:id', async (req, res) => {
+//   const onePhoto = await Photo.findById(req.params.id);
+//   res.render('show.ejs', {onePhoto});
+// });
+//
+//
+// //====DELETE=====
+// router.delete('/:id', async (req, res) => {
+//   const photo = await Photo.findByIdAndRemove(req.params.id);
+//   res.redirect('/photo');
+// });
+
+
+// //=====EDIT=====
+// router.get('/:id/edit', async (req, res) => {
+//   const onePhoto = await Photo.findById(req.params.id);
+//   res.render('edit.ejs', {
+//     photo: onePhoto
+//   });
+// });
+//
+// router.put('/:id', async (req, res) => {
+//   const photo = await Photo.findByIdAndUpdate(req.params.id, req.body);
+//   res.redirect('/photo')
+// });
+
 // show route
 router.get('/:id', async (req, res) => {
   const onePhoto = await Photo.findById(req.params.id);
   // const comments = await Comment.find({ photo: onePhoto._id });
 
-  res.render('photos/show.ejs', {
+  res.render('show.ejs', {
     onePhoto: onePhoto,
     // comments: comments
  });

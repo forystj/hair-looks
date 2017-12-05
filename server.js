@@ -1,10 +1,13 @@
 const express  = require('express');
 const mongoose = require('mongoose');
 const morgan   = require('morgan');
+const methodOverride   = require('method-override');
 const session  = require('express-session');
 const bcrypt   = require('bcrypt');
 const app      = express();
-const PORT     = 3000;
+const PORT     = process.env.PORT || 3000;
+require('pretty-error').start();
+
 
 const hashedString = bcrypt.hashSync('foryst', bcrypt.genSaltSync(10));
 console.log(hashedString);
@@ -12,20 +15,25 @@ console.log(hashedString);
 let test = bcrypt.compareSync('foryst', hashedString);
 console.log(test);
 
-// connect to database
-const mongoURI = 'mongodb://localhost:27017/hair-looks';
+//====DB====
+const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/hair-looks';
 mongoose.connect(mongoURI, { useMongoClient: true});
 mongoose.Promise = global.Promise;
 
-// test db connection
+//====TEST CONNECTION====
 const db = mongoose.connection;
 db.on('error', (err) => console.log(err.message));
 db.on('connected', () => console.log('Mongo running: ', mongoURI));
 
-// We're not using this yet, but we will
-// const usersModel = require('./models/users.js');
 
-// middleware
+//====controllers====
+const photosController = require('./controllers/photos.js');
+// const commentsController = require('./controllers/comments.js');
+const sessionController = require('./controllers/session.js');
+const usersController = require('./controllers/users.js');
+
+
+//====MIDDLEWARE====
 app.use(express.urlencoded({ extended: false}));
 app.use(express.json());
 app.use(morgan('dev'));
@@ -35,23 +43,24 @@ app.use(session({
   resave: false,
   saveUninitialized: false
 }));
-
-// controllers
-const photosController = require('./controllers/photos.js');
-// const commentsController = require('./controllers/comments.js');
-const sessionsController = require('./controllers/sessions.js');
-
-
-app.use('/photos', photosController);
+app.use(methodOverride('_method'));
+app.use('/', photosController);
 // app.use('/comments', commentsController);
-app.use('/user', sessionsController);
+app.use('/user', sessionController);
+app.use('/users', usersController);
 
-// root route
-app.get('/', (req, res) => res.redirect('/photos'));
 
-// :ear
+app.get('/', (req, res) => {
+  res.redirect('/');
+})
+
+//====LISTEN====
+
+// LISTEN
 app.listen(PORT, () => {
   console.log('===========================');
   console.log('Photo app on port: ', PORT);
   console.log('===========================');
 });
+
+module.exports = app;
