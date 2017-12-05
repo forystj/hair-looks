@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>User Profile</title>
-    
+
     <link rel="stylesheet" href="/style.css">
 
     <%# add username property tp title instead of user%>
@@ -14,11 +14,8 @@
 
       <% include ../views/partials/header.ejs %>
 
-    <a href="/photos/new">Add a Photo</a>
-    <%# change to just this user's photos%>
-    <% for (let Photo of allPhotos){ %>
-      <a href= '/photos/<%=Photo._id %>'><img src="<%= Photo.url %>"></a>
-    <% } %>
+      <%= oneUser.username %>
+
 
     </div>
 

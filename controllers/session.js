@@ -2,8 +2,6 @@ const express = require('express');
 const bcrypt  = require('bcrypt');
 const router  = express.Router();
 const User    = require('../models/users.js');
-const userFeed = [];
-
 
 router.get('/login', (req, res) => {
   res.render('session/login.ejs', {
@@ -46,8 +44,6 @@ router.post('/register', async (req, res) => {
   userDbEntry.username = username;
   userDbEntry.password = passwordHash;
   console.log(userDbEntry);
-  userFeed.push(userDbEntry.username);  console.log(userFeed);
-
   try {
     const user = await User.create(userDbEntry);
     console.log(user);

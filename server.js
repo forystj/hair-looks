@@ -55,12 +55,12 @@ app.get('/', (req, res) => {
 })
 
 //====LISTEN====
-
-// LISTEN
 app.listen(PORT, () => {
   console.log('===========================');
   console.log('Photo app on port: ', PORT);
   console.log('===========================');
 });
 
+
+//====EXPORT====
 module.exports = app;

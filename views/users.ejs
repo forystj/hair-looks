@@ -13,8 +13,8 @@
       <% include ../views/partials/header.ejs %>
 
       <% for (let User of allUsers) { %>
-             <a href="/"><h2><%= User.username %></h2></a>
-             <% } %>
+        <a href="/users/<%= User._id %>"><%= User.username %></a>
+      <% } %>
 
 
     divs containing user's name, most recent photo, # of posts
