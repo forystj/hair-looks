@@ -18,7 +18,7 @@
       <h1><%= currentPage %></h1>
 
       <% for (let i = 0; i < photos.length; i++) { %>
-        <a href="/users/<%= photos[i].id %>/"><img src="<%= photos[i].url %>" /></a>
+        <a href="/users/<%= currentPage %>/<%= photos[i].id %>"><img src="<%= photos[i].url %>" /></a>
       <% } %>
     </div>
 

@@ -63,6 +63,19 @@ router.get('/feed', async (req, res) => {
 });
 
 
+//====SHOW====
+router.get('/users/:index/:id', async (req, res) => {
+  const onePhoto = await Photo.findById(req.params.id);
+  // const comments = await Comment.find({ photo: onePhoto._id });
+  res.render('show.ejs', {
+    username: req.session.username,
+    onePhoto: onePhoto,
+    photo: onePhoto._id
+    // comments: comments
+ });
+});
+
+
 // //====DELETE=====
 // router.delete('/:id', async (req, res) => {
 //   const photo = await Photo.findByIdAndRemove(req.params.id);
@@ -81,16 +94,6 @@ router.get('/feed', async (req, res) => {
 // router.put('/:id', async (req, res) => {
 //   const photo = await Photo.findByIdAndUpdate(req.params.id, req.body);
 //   res.redirect('/photo')
-// });
-
-// show route
-// router.get('/:id', async (req, res) => {
-//   const onePhoto = await Photo.findById(req.params.id);
-//   // const comments = await Comment.find({ photo: onePhoto._id });
-//   res.render('show.ejs', {
-//     onePhoto: onePhoto,
-//     // comments: comments
-//  });
 // });
 
 
