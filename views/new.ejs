@@ -16,7 +16,7 @@
       <form action="/feed" method="POST">
 
           <input type="text" name="url" placeholder="Photo URL"/>
-          <input type="text" name="submitted_by" placeholder="Your Name"/>
+          <input type="hidden" name="submitted_by" value="<%= username %>">
           <input type="text" name="caption" placeholder="Caption"/>
 
 

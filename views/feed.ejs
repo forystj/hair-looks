@@ -13,9 +13,8 @@
 
       <% include ../views/partials/header.ejs %>
 
-
-    <% for (let Photo of allPhotos){ %>
-      <a href='/users/<%=Photo._id %>'><img src="<%= Photo.url %>"></a>
+      <% for (let i=0; i < allPhotos.length; i++) { %>
+        <a href='/users/<%=allUsers[i].id%>/<%= allPhotos[i].id %>'><img src="<%= allPhotos[i].url %>"></a>
     <% } %>
 
     </div>

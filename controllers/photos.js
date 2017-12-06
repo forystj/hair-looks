@@ -59,7 +59,7 @@ router.post('/feed', async (req, res) => {
 router.get('/feed', async (req, res) => {
   const allPhotos = await Photo.find();
   const allUsers = await User.find();
-  res.render('feed.ejs', {allPhotos});
+  res.render('feed.ejs', {allPhotos, allUsers});
 });
 
 
@@ -70,7 +70,6 @@ router.get('/users/:index/:id', async (req, res) => {
   res.render('show.ejs', {
     username: req.session.username,
     onePhoto: onePhoto,
-    photo: onePhoto._id
     // comments: comments
  });
 });
