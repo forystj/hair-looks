@@ -6,12 +6,12 @@ const Photo = require('../models/photos.js');
 const User = require('../models/users.js');
 
 
-const sessionController = require('./session.js');
-const photosController = require('./photos.js');
-router.use('/feed', photosController);
-// app.use('/comments', commentsController);
-router.use('/user', sessionController);
-// router.use('/users', usersController);
+// const sessionController = require('./session.js');
+// const photosController = require('./photos.js');
+// router.use('/', photosController);
+// // app.use('/comments', commentsController);
+// router.use('/user', sessionController);
+// // router.use('/users', usersController);
 
 
 //====ALL USERS INDEX====
@@ -47,6 +47,7 @@ router.get('/:index', async (req, res) => {
     res.redirect('/user/login');
   }
 });
+
 
 // // SHOW
 // router.get('/:id', async (req, res) => {

@@ -27,11 +27,10 @@ db.on('connected', () => console.log('Mongo running: ', mongoURI));
 
 
 //====controllers====
-const photosController = require('./controllers/photos.js');
-// const commentsController = require('./controllers/comments.js');
 const sessionController = require('./controllers/session.js');
 const usersController = require('./controllers/users.js');
-
+const photosController = require('./controllers/photos.js');
+// const commentsController = require('./controllers/comments.js');
 
 //====MIDDLEWARE====
 app.use(express.urlencoded({ extended: false}));
@@ -45,13 +44,17 @@ app.use(session({
 }));
 app.use(methodOverride('_method'));
 app.use('/', photosController);
+app.use('/feed', photosController);
 // app.use('/comments', commentsController);
 app.use('/user', sessionController);
 app.use('/users', usersController);
 
 
 app.get('/', (req, res) => {
-  res.redirect('/');
+  res.render('index.ejs', {
+    username: req.session.username
+  });
+  // res.redirect('/');
 })
 
 //====LISTEN====

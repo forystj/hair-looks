@@ -1,11 +1,12 @@
 const express = require('express');
 const router  = express.Router();
-// models
+
+// // models
 const Photo = require('../models/photos.js');
 const User = require('../models/users.js');
-
-const sessionController = require('./session.js');
-router.use('/user', sessionController);
+//
+// const sessionController = require('./session.js');
+// router.use('/user', sessionController);
 
 
 // const Comment = require('../models/comments.js');
@@ -18,6 +19,12 @@ router.get('/users/newphoto', (req, res)=>{
   });
 });
 
+//====FEED====
+router.get('/feed', async (req, res) => {
+  const allPhotos = await Photo.find();
+  const allUsers = await User.find();
+  res.render('feed.ejs', {allPhotos, allUsers});
+});
 
 //====INDEX====
 router.get('/', async (req, res) => {
@@ -55,14 +62,6 @@ router.post('/feed', async (req, res) => {
   }
 });
 
-//====FEED====
-router.get('/feed', async (req, res) => {
-  const allPhotos = await Photo.find();
-  const allUsers = await User.find();
-  res.render('feed.ejs', {allPhotos, allUsers});
-});
-
-
 //====SHOW====
 router.get('/users/:index/:id', async (req, res) => {
   const onePhoto = await Photo.findById(req.params.id);
@@ -73,7 +72,6 @@ router.get('/users/:index/:id', async (req, res) => {
     // comments: comments
  });
 });
-
 
 // //====DELETE=====
 // router.delete('/:id', async (req, res) => {
