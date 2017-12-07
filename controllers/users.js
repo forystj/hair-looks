@@ -6,19 +6,13 @@ const Photo = require('../models/photos.js');
 const User = require('../models/users.js');
 
 
-//ALL users
-router.get('/allUsers', async (req, res) => {
-  const allUser = await User.find();
-  res.render('users/profile.ejs', {allUsers});
-})
-
 router.get('/', async (req, res) => {
   const allUsers = await User.find();
   const foundId = await User.find({username: req.session.username});
-  const allPhotos = await Photo.find();
+  const onePhoto = await Photo.findById(req.params.username);
   if(req.session.logged) {
   res.render('users.ejs', {
-    allPhotos,
+    onePhoto,
     allUsers,
     foundId: foundId,
     username: req.session.username

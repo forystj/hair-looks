@@ -13,13 +13,12 @@
 
       <% include ../views/partials/header.ejs %>
 
-      <a href='/users/<%= foundId[0]._id %>'>View My Profile</a>
-
 
     <% for (let photo of photos) { %>
           <li>
-            <a href="/feed/<%= photo._id %>"><img src="<%= photo.url %>"></a>
-            <h4>Posted By: <%= photo.submitted_by %></h4>
+            <a href="/feed/<%= photo._id %>"><img src="<%= photo.url %>"></a><br>
+            <%= photo.submitted_by %><br>
+            <%= photo.caption %>
           </li>
       <% } %>
 

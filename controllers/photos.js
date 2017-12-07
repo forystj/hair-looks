@@ -1,13 +1,15 @@
 const express = require('express');
 const router  = express.Router();
 
-// // models
+
+//====MODELS=====\\
 const Photo = require('../models/photos.js');
 const User = require('../models/users.js');
 
 // const Comment = require('../models/comments.js');
 
-//====INDEX====
+
+//====INDEX====\\
 router.get('/', async (req, res) => {
   const allPhotos = await Photo.find();
   const foundId = await User.find({username: req.session.username});
@@ -22,7 +24,8 @@ router.get('/', async (req, res) => {
   }
 });
 
-//CREATE
+
+//====ADD NEW PHOTO====\\
 router.post('/', async (req, res) => {
   try {
     const createdPhoto = await Photo.create(req.body);
@@ -32,24 +35,25 @@ router.post('/', async (req, res) => {
   }
 });
 
-//NEW ROUTES
+
+//====NEW ROUTE====\\
 router.get('/new', async (req, res) => {
   const oneUser = await User.find({username: req.session.username});
   res.render('new.ejs', {oneUser, username: req.session.username});
 });
 
-//====SHOW ROUTES====
+
+//====SHOW ROUTES====\\
 router.get('/:id', async (req, res) => {
   const onePhoto = await Photo.findById(req.params.id);
   res.render('show.ejs', {onePhoto: onePhoto, username: req.session.username})
 });
 
 
-
-
+//====EDIT====\\
 router.get('/:id/edit', async (req, res) => {
   const editPhoto = await Photo.findById(req.params.id);
-  res.render('edit.ejs', {Photo: editPhoto, username: req.session.username});
+  res.render('edit.ejs', {photo: editPhoto, username: req.session.username});
 });
 
 router.put('/:id', async (req, res) => {
@@ -58,33 +62,12 @@ router.put('/:id', async (req, res) => {
   res.redirect('/feed');
 });
 
-// //====FEED====
-// router.get('/feed', async (req, res) => {
-//   const allPhotos = await Photo.find();
-//   const allUsers = await User.find();
-//   res.render('feed.ejs', {allPhotos, allUsers});
-// });
 
-
-// //====DELETE=====
-// router.delete('/:id', async (req, res) => {
-//   const photo = await Photo.findByIdAndRemove(req.params.id);
-//   res.redirect('/photo');
-// });
-
-
-// //=====EDIT=====
-// router.get('/:id/edit', async (req, res) => {
-//   const onePhoto = await Photo.findById(req.params.id);
-//   res.render('edit.ejs', {
-//     photo: onePhoto
-//   });
-// });
-//
-// router.put('/:id', async (req, res) => {
-//   const photo = await Photo.findByIdAndUpdate(req.params.id, req.body);
-//   res.redirect('/photo')
-// });
+//====DELETE=====
+router.delete('/:id', async (req, res) => {
+  const photo = await Photo.findByIdAndRemove(req.params.id);
+  res.redirect('back');
+});
 
 
 module.exports = router;

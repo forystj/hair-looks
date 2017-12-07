@@ -5,7 +5,9 @@ const User    = require('../models/users.js');
 
 router.get('/login', (req, res) => {
   res.render('session/login.ejs', {
-    message: req.session.message
+    message: req.session.message,
+    username: req.session.username
+
   })
 });
 
