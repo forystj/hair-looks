@@ -4,8 +4,9 @@ const mongoose    = require('mongoose');
 //====SCHEMA====
 const photoSchema = mongoose.Schema({
   url: { type: String, require: true },
-  submitted_by: String,
-  caption: String
+  submitted_by: { type: String, require: true },
+  caption: String,
+  user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
 });
 
 

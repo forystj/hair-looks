@@ -16,9 +16,9 @@
       <form action="/feed" method="POST">
 
           <input type="text" name="url" placeholder="Photo URL"/>
-          <input type="hidden" name="submitted_by" value="<%= username %>">
+          <input type="hidden" name="submitted_by" value="<%= oneUser[0].username %>"/>
           <input type="text" name="caption" placeholder="Caption"/>
-
+          <input type="hidden" name="user" value="<%= oneUser[0]._id %>"/>
 
           <button type="submit">Add Photo</button>
         </form>

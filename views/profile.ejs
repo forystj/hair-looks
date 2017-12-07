@@ -14,12 +14,15 @@
 
       <% include ../views/partials/header.ejs %>
 
-      <a href="/users/newphoto">Upload New Photo</a>
-      <h1><%= currentPage %></h1>
+      <a href="/feed/new">Upload New Photo</a>
+      <h1><%= username %></h1>
 
-      <% for (let i = 0; i < photos.length; i++) { %>
-        <a href="/users/<%= currentPage %>/<%= photos[i].id %>"><img src="<%= photos[i].url %>" /></a>
+      <% for (let photo of photos) { %>
+        <%= photo.caption %>
+        <a href='/feed/<%= photo._id %>'><img src="<%= photo.url %>"></a>
+
       <% } %>
+
     </div>
 
   </body>

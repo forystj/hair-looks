@@ -6,24 +6,21 @@ const Photo = require('../models/photos.js');
 const User = require('../models/users.js');
 
 
-// const sessionController = require('./session.js');
-// const photosController = require('./photos.js');
-// router.use('/', photosController);
-// // app.use('/comments', commentsController);
-// router.use('/user', sessionController);
-// // router.use('/users', usersController);
+//ALL users
+router.get('/allUsers', async (req, res) => {
+  const allUser = await User.find();
+  res.render('users/profile.ejs', {allUsers});
+})
 
-
-//====ALL USERS INDEX====
 router.get('/', async (req, res) => {
-  const allPhotos = await Photo.find();
   const allUsers = await User.find();
-  const thisUser = await User.find(req.session);
+  const foundId = await User.find({username: req.session.username});
+  const allPhotos = await Photo.find();
   if(req.session.logged) {
   res.render('users.ejs', {
-    thisUser: req.session.index,
+    allPhotos,
     allUsers,
-    photos: allPhotos,
+    foundId: foundId,
     username: req.session.username
     });
   } else {
@@ -33,13 +30,13 @@ router.get('/', async (req, res) => {
 
 
 //====PROFILE PAGE====
-router.get('/:index', async (req, res) => {
-  const allPhotos = await Photo.find();
-  const oneUser = await User.findById(req.params.id);
+router.get('/:id', async (req, res) => {
+  const foundId = await User.find({username: req.session.username});
+  const photos = await Photo.find({user: foundId[0]._id});
   if(req.session.logged) {
   res.render('profile.ejs', {
-    oneUser: User[req.params.index],
-    photos: allPhotos,
+    foundId: foundId,
+    photos: photos,
     currentPage: req.params.index,
     username: req.session.username
     });
@@ -47,22 +44,5 @@ router.get('/:index', async (req, res) => {
     res.redirect('/user/login');
   }
 });
-
-
-// // SHOW
-// router.get('/:id', async (req, res) => {
-//   const allPhotos = await Photo.find();
-//   const oneUser = await User.findById(req.params.id);
-//
-//   if(req.session.logged) {
-//   res.render('profile.ejs', {
-//     oneUser: oneUser,
-//     photos: allPhotos,
-//     username: req.session.username
-//     });
-//   } else {
-//     res.redirect('/user/login');
-//   }
-// });
 
 module.exports = router;

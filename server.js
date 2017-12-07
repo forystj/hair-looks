@@ -26,12 +26,6 @@ db.on('error', (err) => console.log(err.message));
 db.on('connected', () => console.log('Mongo running: ', mongoURI));
 
 
-//====controllers====
-const sessionController = require('./controllers/session.js');
-const usersController = require('./controllers/users.js');
-const photosController = require('./controllers/photos.js');
-// const commentsController = require('./controllers/comments.js');
-
 //====MIDDLEWARE====
 app.use(express.urlencoded({ extended: false}));
 app.use(express.json());
@@ -43,14 +37,24 @@ app.use(session({
   saveUninitialized: false
 }));
 app.use(methodOverride('_method'));
-app.use('/', photosController);
+
+
+//====controllers====
+const sessionController = require('./controllers/session.js');
+const usersController = require('./controllers/users.js');
+const photosController = require('./controllers/photos.js');
+// const commentsController = require('./controllers/comments.js');
+
+
 app.use('/feed', photosController);
+// app.use('/feed', photosController);
 // app.use('/comments', commentsController);
 app.use('/user', sessionController);
 app.use('/users', usersController);
 
 
 app.get('/', (req, res) => {
+  // res.redirect('/feed')
   res.render('index.ejs', {
     username: req.session.username
   });

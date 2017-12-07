@@ -13,12 +13,17 @@
 
       <% include ../views/partials/header.ejs %>
 
+      <a href='/users/<%= foundId[0]._id %>'>View My Profile</a>
 
-      <% for (let i=0; i < allPhotos.length; i++) { %>
-        <% for (let j=0; j < allUsers.length; j++) { %>
-        <a href='/users/<%=allUsers[j].username%>/<%= allPhotos[i].id %>'><img src="<%= allPhotos[i].url %>"></a>
-        <% } %>
-    <% } %>
+
+    <% for (let photo of photos) { %>
+          <li>
+            <a href="/feed/<%= photo._id %>"><img src="<%= photo.url %>"></a>
+            <h4>Posted By: <%= photo.submitted_by %></h4>
+          </li>
+      <% } %>
+
+
 
     </div>
 
