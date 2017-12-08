@@ -42,25 +42,10 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-
-// //====EDIT====\\
-// router.get('/:id/bio', async (req, res) => {
-//   const editBio = await User.findById(req.params.id);
-//   res.render('session/bio.ejs', {editBio, username: req.session.username});
-// });
-
 router.put('/:id', async (req, res) => {
   const updateBio = await
   User.findByIdAndUpdate(req.params.id);
   // res.redirect('back');
 });
-
-/*<form action="/users/<%=username%>?_method=PUT" method="POST">
-    write a bio
-      <input type="text" name="caption" value="<%= editBio.bio %>"/>
-
-      <h2><%= userBio %></h2>
-      <button type="submit">Submit Changes</button>
-</form>*/
 
 module.exports = router;

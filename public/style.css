@@ -32,8 +32,6 @@ ul {
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
-  top: 0;
-  position: fixed;
 }
 
 .head_left {
@@ -109,7 +107,6 @@ a.top-links:hover {
   display: flex;
   flex-direction: row;
   box-shadow:  inset 0 0 7px rgba(0, 0, 0, 0.2);
-  margin-top: 10%;
 }
 
 .spot-cont {
@@ -144,7 +141,6 @@ a.top-links:hover {
   width: 90%;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 10%;
 }
 
 .show-page h1 {
@@ -327,7 +323,7 @@ footer {
 }
 
 
-@media only screen and (max-device-width: 800px) {
+@media only screen and (max-width: 800px) {
   .spotlight {
     background: none;
     border: none;
@@ -405,7 +401,7 @@ footer {
 
 }
 
-@media only screen and (max-device-width: 600px) {
+@media only screen and (max-width: 600px) {
   .spotlight {
     width: 400px;
     height: 800px;
