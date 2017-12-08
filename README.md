@@ -18,13 +18,13 @@
   * Creating an all user's page. I have a page where each user is printed on the screen, however I was not able to make them link to anyone other than the currently signed in user.
 
 ### What I hope to add
-  * A page to display all users
-  * Commenting on photos from users
-  * Randomly generated photos to appear on the home page spotlight area
-    instead of the most recent.
+  * A page to display all users linking to their individual profile page
+  * Commenting on photos from other users
+  * Randomly generated photos to appear on the home page spotlight area instead of the most recent.
+  * An editable profile bio
 
 ### Credits
-  All photos, and title of markup are shared with &hearts; by Tailored Salon in San Francisco, CA
+  All photos, and title of markup are shared with &hearts; by <a href="http://tailoredsf.com">Tailored Salon</a> in San Francisco, CA
 
 ### Acknowledgments
   * Thank you to my teachers for being an inspiration and giving me the knowledge to create this project.

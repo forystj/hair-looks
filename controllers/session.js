@@ -57,7 +57,6 @@ router.post('/register', async (req, res) => {
 })
 
 router.get('/logout', (req, res) => {
-  // here we destroy the session
   req.session.destroy();
   res.redirect('/')
 });

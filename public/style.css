@@ -102,7 +102,6 @@ a.top-links:hover {
   overflow: hidden;
   box-sizing: border-box;
   background: #f7f7f7;
-  border-radius: 40px;
   border: 10px solid #ccc;
   display: flex;
   flex-direction: row;
@@ -312,7 +311,7 @@ p.message {
 }
 
 footer {
-  bottom: 0;
+  /*bottom: 0;*/
   height: 3em;
   width: 100%;
   text-align: center;
