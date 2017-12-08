@@ -8,17 +8,19 @@
 
   </head>
   <body>
-
     <div id="container">
-
       <% include ../views/partials/header.ejs %>
+        <div class="show-page">
+          <h1>By: <%= onePhoto.submitted_by %></h1>
+          <hr class="indigo" />
+          <hr class="sky" />
+          <div class="photo-click">
+            <img src="<%= onePhoto.url %>">
+            <p><%= onePhoto.caption %></p>
 
-      <img src="<%= onePhoto.url %>">
-      <h3><%= onePhoto.submitted_by %></h3>
-      <a href="/feed/<%=onePhoto._id%>/edit">Edit</a>
-      
-
+            <a href="/feed/<%=onePhoto._id%>/edit"><button>Edit</button>
+          </div>
+      </div>
     </div>
-
   </body>
 </html>

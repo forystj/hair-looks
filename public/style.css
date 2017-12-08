@@ -176,7 +176,7 @@ hr.sky {
   margin: auto;
 }
 
-.log-in, .register {
+.fields {
   width: 300px;
   height: 400px;
   background: #f7f7f7;
@@ -186,7 +186,7 @@ hr.sky {
   text-align: center;
 }
 
-.log-in h1, .register h1 {
+.fields h1 {
   color: #37379b;
   font-size: 2.5em;
   margin: 20px 0;
@@ -224,6 +224,7 @@ button {
   background: #eaeaea;
   outline: 0;
   border: 2px solid #ddd;
+  margin-bottom: 10px;
   cursor: pointer;
   -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
@@ -231,6 +232,34 @@ button {
 
 button:hover {
   background: #f7f7f7;
+}
+
+textarea {
+  width: 200px;
+  height: 70px;
+  text-align: center;
+  font-size: 15px;
+  color: #277fc6;
+  border: 3px solid #e0e0e0;
+  border-radius: 10px;
+  outline: 0;
+  background: #fcfcfc;
+  box-shadow:  inset 0 0 7px rgba(0, 0, 0, 0.3);
+}
+
+.photo-click {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 65%;
+  text-align: center;
+}
+
+.photo-click img {
+  width: 400px;
+  margin: auto;
+  border-radius: 30px;
+  padding: 15px;
 }
 
 /*<form action="/users/<%=username%>?_method=PUT" method="POST">

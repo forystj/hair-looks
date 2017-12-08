@@ -8,27 +8,32 @@
 
   </head>
   <body>
-
     <div id="container">
-
       <% include ../views/partials/header.ejs %>
-      <form action="/feed/<%=photo.id%>?_method=PUT" method="POST">
-              <ul class="edit">
-                <li>URL:</li>
-                <input type="text" name="url" value="<%= photo.url %>"/>
-                <li>Caption</li>
-                <input type="text" name="caption" value="<%= photo.caption %>"/>
+        <div class="show-page">
+          <hr class="indigo" />
+          <hr class="sky" />
 
+          <div class="fields">
+            <h1>Edit Photo</h1>
+            <form action="/feed/<%=photo.id%>?_method=PUT" method="POST">
+              <ul>
+                <li class="login">Photo URL:</li>
+                <input type="text" name="url" value="<%= photo.url %>"/>
+                <li class="login">Photo Caption:</li>
+                <textarea name="caption" value="<%= photo.caption %>"/></textarea>
               </ul>
 
-            <button type="submit">Submit Changes</button>
-            </form>
-            <form action="/feed/<%= photo.id %>?_method=DELETE" method="POST">
-              <input type="submit" value="Delete Post">
-            </form>
+              <button type="submit">Submit Changes</button>
+              </form>
 
+              <form action="/feed/<%= photo.id %>?_method=DELETE" method="POST">
+              <button type="submit" value="Delete Post">Delete Photo</button>
+          </form>
+        </div>
+        <hr class="sky" />
+        <hr class="indigo" />
+      </div>
     </div>
-
-
   </body>
 </html>

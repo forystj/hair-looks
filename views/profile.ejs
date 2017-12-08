@@ -9,27 +9,26 @@
     <%# add username property tp title instead of user%>
   </head>
   <body>
-
     <div id="container">
-
       <% include ../views/partials/header.ejs %>
 
         <div class="show-page">
           <h1><%= username %></h1>
-
           <hr class="indigo" />
           <hr class="sky" />
+
             <a href="/feed/new">Upload New Photo</a>
-      <% for (let photo of photos) { %>
-        <a href='/feed/<%= photo._id %>'>
-        <div class="show-img-container">
-          <div class="show-text">
-            <%= photo.caption %>
-          </div>
-          <img src="<%= photo.url %>"></a>
-        </div></a>
-      <% } %>
-    </div>
+            <% for (let photo of photos) { %>
+              <a href='/feed/<%= photo._id %>'>
+              <div class="show-img-container">
+                <div class="show-text">
+                  <%= photo.caption %>
+                </div>
+                <img src="<%= photo.url %>"></a>
+              </div>
+              </a>
+            <% } %>
+        </div>
     </div>
 
   </body>
