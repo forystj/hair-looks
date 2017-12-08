@@ -18,7 +18,7 @@
             <form action="/user/login" method="post">
             <ul>
               <li class="login">Username:</li> <input name="username" /> <br />
-              <li class="login">Password:</li> <input name="password" /><br />
+              <li class="login">Password:</li> <input type="password" name="password"/><br />
             </ul>
               <button type="submit">Submit</button><br>
               <% if (message) { %>
@@ -32,13 +32,16 @@
             <form action="/user/register" method="POST">
               <ul>
               <li class="login">Username:</li><input name="username" /> <br />
-              <li class="login">Password:</li><input name="password" /><br />
+              <li class="login">Password:</li><input type="password" name="password" /><br />
               </ul>
               <button type="submit">Register</button>
             </form>
           </div>
 
         </div>
+
+        <% include ../views/partials/footer.ejs %>
+
 
       </div>
     </body>

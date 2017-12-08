@@ -66,7 +66,7 @@ router.put('/:id', async (req, res) => {
 //====DELETE=====
 router.delete('/:id', async (req, res) => {
   const photo = await Photo.findByIdAndRemove(req.params.id);
-  res.redirect('back');
+  res.redirect('/feed');
 });
 
 

@@ -29,11 +29,15 @@
 
               <form action="/feed/<%= photo.id %>?_method=DELETE" method="POST">
               <button type="submit" value="Delete Post">Delete Photo</button>
-          </form>
+              </form>
         </div>
         <hr class="sky" />
         <hr class="indigo" />
       </div>
+
+      <% include ../views/partials/footer.ejs %>
+
+
     </div>
   </body>
 </html>

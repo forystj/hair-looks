@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html>
    <head>
@@ -13,15 +11,19 @@
      <div id="container">
 
        <% include ../views/partials/header.ejs %>
-       <hr class="indigo" />
-       <hr class="sky" />
+
        <div class="spotlight">
+         <div class="spot-cont">
          <% for (let photo of photos) { %>
+           <div class="image-cont">
            <img src="<%= photo.url %>">
+           </div>
         <% } %>
+        </div>
        </div>
-       <hr class="sky" />
-       <hr class="indigo" />
+
+       <% include ../views/partials/footer.ejs %>
+
      </div>
    </body>
 </html>

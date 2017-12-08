@@ -55,4 +55,12 @@ router.put('/:id', async (req, res) => {
   // res.redirect('back');
 });
 
+/*<form action="/users/<%=username%>?_method=PUT" method="POST">
+    write a bio
+      <input type="text" name="caption" value="<%= editBio.bio %>"/>
+
+      <h2><%= userBio %></h2>
+      <button type="submit">Submit Changes</button>
+</form>*/
+
 module.exports = router;
