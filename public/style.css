@@ -319,7 +319,7 @@ footer {
 }
 
 
-@media (max-width: 800px) {
+@media only screen and (max-device-width: 800px) {
   .spotlight {
     background: none;
     border: none;
@@ -397,7 +397,7 @@ footer {
 
 }
 
-@media (max-width: 600px) {
+@media only screen and (max-device-width: 600px) {
   .spotlight {
     width: 400px;
     height: 800px;
