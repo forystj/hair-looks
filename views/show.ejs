@@ -16,7 +16,9 @@
           <hr class="sky" />
           <div class="photo-click">
             <img src="<%= onePhoto.url %>">
-            <p><%= onePhoto.caption %></p>
+            <div class="caption-box">
+            <%= onePhoto.caption %>
+            </div>
 
             <a href="/feed/<%=onePhoto._id%>/edit"><button>Edit</button></a>
           </div>

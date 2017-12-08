@@ -34,16 +34,25 @@ ul {
   align-items: flex-end;
 }
 
+.center-header {
+  margin: auto;
+  height: 4em;
+  width: 800px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
 .head_left {
-  float: left;
-  padding-left: 12px;
+  /*float: right;*/
+  margin-right: 80px;
   width: 50%;
   text-align: left;
 }
 
 .head_right{
-  float: right;
-  padding-right: 12px;
+  /*float: left;*/
+  /*margin-left: 120px;*/
   width: 50%;
   text-align: right;
   padding-bottom: 7px;
@@ -133,16 +142,26 @@ a.top-links:hover {
   width: 340px;
 }
 
+.about {
+  width: 800px;
+  height: 200px;
+  background: #f7f7f7;
+  margin: auto;
+  padding: 30px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
 .show-page {
   display: flex;
   flex-direction: row;
   margin: auto;
-  width: 90%;
+  width: 800px;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-.show-page h1 {
+.show-page h1, .about h1 {
   color: #b2b2b2;
   font-size: 4em;
   font-family: helvetica;
@@ -186,6 +205,15 @@ align-items: flex-end;
 
 .show-page img {
   width: 200px;
+}
+
+.caption-box {
+  margin: auto;
+  background: #f7f7f7;
+  width: 350px;
+  height: 50px;
+  padding-top: 5px;
+  margin-bottom: 15px;
 }
 
 hr {
