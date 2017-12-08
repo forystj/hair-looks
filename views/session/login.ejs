@@ -17,8 +17,8 @@
           <h1>log in</h1>
             <form action="/user/login" method="post">
             <ul>
-              <li class="login">Username:</li> <input name="username" /> <br />
-              <li class="login">Password:</li> <input type="password" name="password"/><br />
+              <li class="login">Username:</li> <input name="username" autocomplete="off" /> <br />
+              <li class="login">Password:</li> <input type="password" autocomplete="off" name="password"/><br />
             </ul>
               <button type="submit">Submit</button><br>
               <% if (message) { %>
@@ -31,8 +31,8 @@
             <h1>register</h1>
             <form action="/user/register" method="POST">
               <ul>
-              <li class="login">Username:</li><input name="username" /> <br />
-              <li class="login">Password:</li><input type="password" name="password" /><br />
+              <li class="login">Username:</li><input name="username" autocomplete="off" /> <br />
+              <li class="login">Password:</li><input type="password" autocomplete="off" name="password" /><br />
               </ul>
               <button type="submit">Register</button>
             </form>
