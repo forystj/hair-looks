@@ -26,7 +26,7 @@ router.get('/', async (req, res) => {
 //====PROFILE PAGE====\\
 router.get('/:id', async (req, res) => {
   const foundId = await User.find({username: req.session.username});
-  const photos = await Photo.find({user: foundId[0]._id});
+  const photos = await Photo.find({user: foundId[0]._id}).sort({created_at: -1 } );
   const editBio = await User.find(req.params.id);
   if(req.session.logged) {
   res.render('profile.ejs', {

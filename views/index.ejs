@@ -1,22 +1,27 @@
+
+
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>TAILOREDhair</title>
+   <head>
+     <meta charset="utf-8">
+     <title>TAILOREDhair</title>
 
-    <link rel="stylesheet" href="/style.css">
+     <link rel="stylesheet" href="/style.css">
 
-  </head>
-  <body>
-    <div id="container">
+   </head>
+   <body>
+     <div id="container">
 
-      <% include ../views/partials/header.ejs %>
-
-      <div class="spotlight">
-              SPOTLIGHT AREA
-      </div>
-
-    </div>
-
-  </body>
+       <% include ../views/partials/header.ejs %>
+       <hr class="indigo" />
+       <hr class="sky" />
+       <div class="spotlight">
+         <% for (let photo of photos) { %>
+           <img src="<%= photo.url %>">
+        <% } %>
+       </div>
+       <hr class="sky" />
+       <hr class="indigo" />
+     </div>
+   </body>
 </html>

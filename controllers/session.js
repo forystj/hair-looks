@@ -23,12 +23,12 @@ router.post('/login', async (req, res) => {
     res.redirect('/');
   } else {
     console.log('bad password');
-    req.session.message = "Username or password are incorrect";
+    req.session.message = "username or password are incorrect";
     res.redirect('/user/login');
     }
   } catch (err) {
     console.log(err);
-    req.session.message = "Username or password are incorrect";
+    req.session.message = "username or password are incorrect";
     res.redirect('/user/login');
     }
 })

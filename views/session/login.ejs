@@ -13,30 +13,30 @@
 
         <% include ../partials/header.ejs %>
         <div class="show-page">
-        <% if (message) { %>
-          <%= message %>
-        <% } %>
-        <div class="fields">
-        <h1>log in</h1>
-          <form action="/user/login" method="post">
-          <ul>
-            <li class="login">Username:</li> <input name="username" /> <br />
-            <li class="login">Password:</li> <input name="password" /><br />
-          </ul>
-            <button type="submit">Submit</button>
-          </form>
-        </div>
-
-        <div class="fields">
-          <h1>register</h1>
-          <form action="/user/register" method="POST">
+          <div class="fields">
+          <h1>log in</h1>
+            <form action="/user/login" method="post">
             <ul>
-            <li class="login">Username:</li><input name="username" /> <br />
-            <li class="login">Password:</li><input name="password" /><br />
+              <li class="login">Username:</li> <input name="username" /> <br />
+              <li class="login">Password:</li> <input name="password" /><br />
             </ul>
-            <button type="submit">Register</button>
-          </form>
-        </div>
+              <button type="submit">Submit</button><br>
+              <% if (message) { %>
+                <p class="message"><%= message %></p>
+              <% } %>
+            </form>
+          </div>
+
+          <div class="fields">
+            <h1>register</h1>
+            <form action="/user/register" method="POST">
+              <ul>
+              <li class="login">Username:</li><input name="username" /> <br />
+              <li class="login">Password:</li><input name="password" /><br />
+              </ul>
+              <button type="submit">Register</button>
+            </form>
+          </div>
 
         </div>
 
