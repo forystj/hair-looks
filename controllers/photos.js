@@ -11,7 +11,7 @@ const User = require('../models/users.js');
 
 //====INDEX====\\
 router.get('/', async (req, res) => {
-  const allPhotos = await Photo.find();
+  const allPhotos = await Photo.find().sort({created_at: -1 } );
   const foundId = await User.find({username: req.session.username});
   if(req.session.logged) {
   res.render('feed.ejs', {

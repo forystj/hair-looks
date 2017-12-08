@@ -6,9 +6,6 @@ a {
   text-decoration: none;
 }
 
-img {
-  width: 50%;
-}
 
 ul {
   list-style: none;
@@ -31,7 +28,7 @@ ul {
   background: -moz-linear-gradient(rgba(237, 237, 237, .8), rgba(250, 250, 250, .8));
   background: linear-gradient(rgba(237, 237, 237, .8), rgba(250, 250, 250, .8));
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
-  margin-bottom: 5em;
+  margin-bottom: 3em;
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
@@ -104,3 +101,142 @@ a.top-links:hover {
   height: 20em;
   background: rgba(237, 237, 237, .8);
 }
+
+.show-page {
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  width: 90%;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.show-page h1 {
+  color: #b2b2b2;
+  font-size: 4em;
+  font-family: helvetica;
+  letter-spacing: -2px;
+  margin: 0;
+}
+
+.show-img-container {
+  min-width: 200px;
+  min-height: 200px;
+  max-width: 200px;
+  max-height: 200px;
+  overflow: hidden;
+  margin: 20px;
+}
+
+.show-text {
+position: absolute;
+transition: .4s ease;
+background: rgba(255,255,255,0);
+z-index: 99;
+width: 200px;
+height: 200px;
+opacity: 0;
+color: #545454;
+font-family: arial;
+font-weight: 500;
+font-size: 1.1em;
+text-align: center;
+padding-bottom: 20px;
+box-sizing: border-box;
+display: flex;
+justify-content: center;
+align-items: flex-end;
+}
+
+.show-text:hover {
+  background: rgba(255,255,255,.8);
+  opacity: 1;
+}
+
+.show-page img {
+  width: 200px;
+}
+
+hr {
+    height: 10px;
+    width: 100%;
+    border: 0;
+    margin: 5px;
+}
+
+hr.indigo {
+  background: -webkit-linear-gradient(left, #3a3995 , white);
+}
+
+hr.sky {
+  background: -webkit-linear-gradient(left, white , #277fc6);
+}
+
+.add-new {
+  margin: auto;
+}
+
+.log-in, .register {
+  width: 300px;
+  height: 400px;
+  background: #f7f7f7;
+  margin: 20px;
+  border-radius: 40px;
+  border: 10px solid #efefef;
+  text-align: center;
+}
+
+.log-in h1, .register h1 {
+  color: #37379b;
+  font-size: 2.5em;
+  margin: 20px 0;
+  font-weight: 300;
+  letter-spacing: 3px;
+}
+
+input {
+  width: 150px;
+  height: 30px;
+  text-align: center;
+  font-size: 15px;
+  color: #277fc6;
+  border: 3px solid #e0e0e0;
+  border-radius: 10px;
+  outline: 0;
+  background: #fcfcfc;
+  box-shadow:  inset 0 0 7px rgba(0, 0, 0, 0.3);
+}
+
+li.login {
+  color: #999;
+  margin: 5px 0;
+  font-family: helvetica;
+  font-size: 1em;
+}
+
+button {
+  width: 150px;
+  height: 40px;
+  color: #a5a5a5;
+  font-size: .9em;
+  font-weight: 600;
+  border: none;
+  background: #eaeaea;
+  outline: 0;
+  border: 2px solid #ddd;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+
+button:hover {
+  background: #f7f7f7;
+}
+
+/*<form action="/users/<%=username%>?_method=PUT" method="POST">
+    write a bio
+      <input type="text" name="caption" value="<%= editBio.bio %>"/>
+
+      <h2><%= userBio %></h2>
+      <button type="submit">Submit Changes</button>
+</form>*/

@@ -9,7 +9,7 @@
   </div>
   <div class="head_right">
     <% if (username) { %>
-        <span class="hi">Hi, <span class="name"><%= username %></span>!</span> <a class="top-links" href="/user/logout">Log Out</a>
+        <span class="hi">Hi, <a href="/users/<%=username%>"><span class="name"><%= username %></span></a>!</span> <a class="top-links" href="/user/logout">Log Out</a>
     <% } else { %>
     <a class="top-links" href='/user/login'>Log In | Register</a>
     <% } %>

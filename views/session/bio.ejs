@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Edit Photo</title>
+
+    <link rel="stylesheet" href="/style.css">
+
+  </head>
+  <body>
+
+    <div id="container">
+
+      <% include ../views/partials/header.ejs %>
+      <form action="/feed/<%=photo.id%>?_method=PUT" method="POST">
+              <ul class="edit">
+                <li>Bio</li>
+                <input type="text" name="caption" value="<%= user.bio %>"/>
+              </ul>
+
+            <button type="submit">Submit Changes</button>
+            </form>
+
+    </div>
+
+
+  </body>
+</html>

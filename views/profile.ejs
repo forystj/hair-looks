@@ -14,15 +14,22 @@
 
       <% include ../views/partials/header.ejs %>
 
-      <a href="/feed/new">Upload New Photo</a>
-      <h1><%= username %></h1>
+        <div class="show-page">
+          <h1><%= username %></h1>
 
+          <hr class="indigo" />
+          <hr class="sky" />
+            <a href="/feed/new">Upload New Photo</a>
       <% for (let photo of photos) { %>
-        <%= photo.caption %>
-        <a href='/feed/<%= photo._id %>'><img src="<%= photo.url %>"></a>
-
+        <a href='/feed/<%= photo._id %>'>
+        <div class="show-img-container">
+          <div class="show-text">
+            <%= photo.caption %>
+          </div>
+          <img src="<%= photo.url %>"></a>
+        </div></a>
       <% } %>
-
+    </div>
     </div>
 
   </body>

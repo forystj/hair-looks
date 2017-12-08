@@ -12,25 +12,33 @@
       <div id="container">
 
         <% include ../partials/header.ejs %>
-
+        <div class="show-page">
         <% if (message) { %>
           <%= message %>
         <% } %>
-
+        <div class="log-in">
+        <h1>log in</h1>
           <form action="/user/login" method="post">
-            Username: <input name="username" /> <br />
-            Password: <input name="password" /><br />
-
+          <ul>
+            <li class="login">Username:</li> <input name="username" /> <br />
+            <li class="login">Password:</li> <input name="password" /><br />
+          </ul>
             <button type="submit">Submit</button>
           </form>
+        </div>
 
-          <br>
-          <h2>Register</h2>
+        <div class="register">
+          <h1>register</h1>
           <form action="/user/register" method="POST">
-            Username: <input name="username" /> <br />
-            Password: <input name="password" /><br />
+            <ul>
+            <li class="login">Username:</li><input name="username" /> <br />
+            <li class="login">Password:</li><input name="password" /><br />
+            </ul>
             <button type="submit">Register</button>
           </form>
+        </div>
+
+        </div>
 
       </div>
     </body>

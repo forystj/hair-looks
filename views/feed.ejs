@@ -13,16 +13,20 @@
 
       <% include ../views/partials/header.ejs %>
 
-
-    <% for (let photo of photos) { %>
-          <li>
-            <a href="/feed/<%= photo._id %>"><img src="<%= photo.url %>"></a><br>
-            <%= photo.submitted_by %><br>
-            <%= photo.caption %>
-          </li>
-      <% } %>
-
-
+      <div class="show-page">
+        <h1>feed</h1>
+        <hr class="indigo" />
+        <hr class="sky" />
+        <% for (let photo of photos) { %>
+          <a href="/feed/<%= photo._id %>">
+          <div class="show-img-container">
+            <div class="show-text">
+              Posted By: <%= photo.submitted_by %>
+            </div>
+            <img src="<%= photo.url %>">
+          </div></a>
+          <% } %>
+        </div>
 
     </div>
 
