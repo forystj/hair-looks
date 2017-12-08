@@ -2,7 +2,7 @@
 ### Concept by: Foryst Jankela
 
   | A social media platform markup for hair stylists and colorists |
-        | Inspired by Tailored Salon in San Francisco, CA |
+         Inspired by Tailored Salon in San Francisco, CA |
 
 ## Deployment
   Deployed on Heroku @ https://hair-looks.herokuapp.com/

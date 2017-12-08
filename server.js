@@ -55,7 +55,7 @@ app.use('/users', usersController);
 app.get('/', async (req, res) => {
   // res.redirect('/feed')
   const Photo = require('./models/photos.js');
-  const allPhotos = await Photo.find();
+  const allPhotos = await Photo.find().sort({created_at: -1 } );
   res.render('index.ejs', {
     username: req.session.username,
     photos: allPhotos
